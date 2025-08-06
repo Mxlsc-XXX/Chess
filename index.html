@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xadrez Multiplayer</title>
+    <link rel="stylesheet" href="libs/chessboard-1.0.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Xadrez Multiplayer ⚔️</h1>
+    <div id="setup-container">
+        <div id="create-room-section" class="card">
+            <h2>Criar Sala</h2>
+            <input id="create-room-input" type="text" placeholder="Código da sala" maxlength="20" />
+            <div id="color-choice">
+                <p>Escolha sua cor:</p>
+                <input type="radio" id="white" name="color" value="w" checked>
+                <label for="white">Brancas</label>
+                <input type="radio" id="black" name="color" value="b">
+                <label for="black">Pretas</label>
+            </div>
+            <button id="create-room-btn">Criar Sala</button>
+        </div>
+        <div id="join-room-section" class="card">
+            <h2>Entrar em Sala</h2>
+            <ul id="rooms-list">
+            </ul>
+        </div>
+    </div>
+    <div id="game-container" style="display: none;">
+        <div id="board"></div>
+        <div id="status"></div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="libs/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

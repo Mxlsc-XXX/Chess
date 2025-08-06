@@ -1,0 +1,241 @@
+/* Fundo com degrade sutil e dark mode vibes */
+body {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #f5f5f5;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem; /* Pequena margem lateral pra não colar na borda */
+    scroll-behavior: smooth; /* Rolagem suave quando trocar seções */
+}
+
+/* Título principal chamativo com sombra */
+h1 {
+    margin-top: 2rem;
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Responsivo */
+    letter-spacing: 2px;
+    color: #ffd700;
+    text-shadow: 2px 2px 8px #000a;
+    user-select: none; /* Não deixa selecionar texto sem querer */
+}
+
+/* Container das ações, flex responsivo */
+#setup-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Se a tela for pequena, quebra linha */
+    justify-content: center;
+}
+
+/* Cards com fundo semitransparente, cantos arredondados e sombra boa */
+.card {
+    background: rgba(35, 37, 38, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px; /* Pra ficar minimamente grande */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.5);
+}
+
+/* Título dentro do card com cor e peso */
+.card h2 {
+    margin-top: 0;
+    color: #ffd700;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Inputs bonitos, com foco mais claro e acessível */
+input[type="text"] {
+    padding: 0.7em 1em;
+    border-radius: 6px;
+    border: none;
+    font-size: 1.1rem;
+    margin-bottom: 1em;
+    background: #414345;
+    color: #ffd700;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    outline-offset: 2px;
+    transition: box-shadow 0.2s, background-color 0.2s;
+    width: 100%;
+    max-width: 280px;
+}
+
+input[type="text"]::placeholder {
+    color: #ffd700aa; /* Placeholder amarelo suave */
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 8px 2px #ffd700;
+    background-color: #4a4c4d;
+}
+
+/* Botão com transições e hover style elegante */
+button {
+    padding: 0.7em 1.5em;
+    border-radius: 6px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #ffd700;
+    color: #232526;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
+    user-select: none;
+}
+button:hover,
+button:focus {
+    background: #ffec8b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(255, 215, 0, 0.9);
+    outline: none;
+}
+button:active {
+    transform: translateY(0);
+}
+
+/* Escolha de cor, bem espaçado e acessível */
+#color-choice {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#color-choice p {
+    margin: 0;
+    font-weight: 600;
+    user-select: none;
+}
+
+/* Esconde radio, mas mantém acessível */
+#color-choice input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Labels estilizados e que indicam seleção */
+#color-choice label {
+    padding: 0.5em 1.5em;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #414345;
+    color: #ffd700cc;
+    font-weight: 600;
+    user-select: none;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+#color-choice input[type="radio"]:checked + label {
+    background: #ffd700;
+    color: #232526;
+    box-shadow: 0 0 8px 2px #ffd700;
+}
+
+/* Lista de salas com scroll e estilo clean */
+#rooms-list {
+    list-style: none;
+    padding: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    background: rgba(65, 67, 69, 0.8);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* Cada sala com hover e display flex pra botar o botão no canto */
+#rooms-list li {
+    background: #414345;
+    padding: 0.7em 1em;
+    border-radius: 6px;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #ffd700dd;
+}
+#rooms-list li:hover {
+    background: #5a5d60;
+}
+
+/* Botão de entrar na sala menor e discreto */
+.room-join-btn {
+    padding: 0.3em 0.8em;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: none;
+    background: #ffd700cc;
+    color: #232526;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(255, 215, 0, 0.7);
+    transition: background 0.3s;
+}
+.room-join-btn:hover {
+    background: #ffec8b;
+}
+
+/* Tabuleiro com sombra elegante e arredondado */
+#board {
+    margin: 2rem auto 1rem auto;
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.5),
+        0 1.5px 8px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 480px;
+    width: 100%;
+}
+
+/* Status do jogo com background transparente e sombra */
+#status {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin: 1.5rem 0 0.5rem 0;
+    padding: 0.7em 1.5em;
+    background: rgba(35, 37, 38, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: inline-block;
+    min-width: 220px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+/* Responsividade geral */
+@media (max-width: 600px) {
+    #setup-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .card {
+        min-width: 90vw;
+    }
+    #rooms-list {
+        max-width: 90vw;
+        max-height: 180px;
+    }
+}
